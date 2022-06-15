@@ -11,7 +11,7 @@ import org.springframework.web.server.ServerWebExchange;
 import reactor.core.publisher.Mono;
 
 @Slf4j
-@Component
+//@Component
 public class GlobalFilterConfig implements GlobalFilter, Ordered {
 
     @Override

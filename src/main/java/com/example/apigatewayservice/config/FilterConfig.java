@@ -10,9 +10,9 @@ import org.springframework.context.annotation.Configuration;
 
 //java에서 Spring Cloud Gateway 설정
 
-@Configuration
+//@Configuration
 public class FilterConfig {
-    @Bean
+//    @Bean
     public RouteLocator gatewayRoutes(RouteLocatorBuilder builder, CustomFilter customFilter, LoggingFilter loggingFilter){
         return builder.routes()
                 .route(r -> r.path("/first-service/**")
