@@ -47,6 +47,8 @@ spring:
           predicates:
               - Path=/user-service/actuator/**
               - Method=GET,POST
+          filters:
+            - RewritePath=/user-service/(?<segment>.*), /$\{segment}
         - id: catalog-service
           uri: lb://CATALOG-SERVICE
           predicates:
@@ -57,9 +59,13 @@ spring:
             baseMessage: Spring Cloud Gateway Global Filter
             preLogger: true
             postLogger: true
+    bus:
+      destination: test_topic
+  kafka:
+    bootstrap-servers: http://localhost:9092
 
 management:
   endpoints:
     web:
       exposure:
-        include: refresh, health, beans
+        include: refresh, health, beans, busrefresh
